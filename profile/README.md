@@ -42,51 +42,11 @@
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `signet`                                      | OAuth 2.0 / OIDC Authorization Server — Device Grant + Auth Code + PKCE + Client Credentials, MCP-ready |
 | `cli`                                         | Smart OAuth CLI — auto-detects environment and picks the right flow                                     |
-| `oauth-cli`                                   | OAuth 2.0 Authorization Code Flow + PKCE CLI client with browser-based login                            |
-| `device-cli`                                  | OAuth 2.0 Device Authorization Grant CLI client for headless environments                               |
 | `sdk-go`                                      | Go SDK — token client, OIDC discovery, CLI flow orchestration, keyring storage, JWKS/online middleware  |
 | `sdk-python`                                  | Python SDK — sync & async auth, with FastAPI / Flask / Django integrations                              |
 | `examples`                                    | Multi-language usage examples (Go, Python, Bash) — CLI login, M2M, and API protection                   |
 | `helm-signet`                                 | Helm chart — single-instance (SQLite) or HA (PostgreSQL + Redis) Kubernetes deployment                  |
 | [`brand`](https://github.com/go-signet/brand) | Official brand assets — logos, marks, favicons, palette, and [interactive guidelines](https://go-signet.github.io/brand/) |
-
----
-
-## Documentation
-
-Full guides live in the `signet` repository under `docs/`.
-
-**Getting started**
-
-| Guide                   | What it covers                                                            |
-| ----------------------- | -------------------------------------------------------------------------- |
-| Configuration           | Environment variables, secrets management, and advanced feature flags     |
-| OAuth Setup             | Wiring up GitHub, Gitea, GitLab, and Microsoft Entra ID third-party login |
-| Deployment              | Binary, Docker, reverse proxy, and cloud-platform deployment              |
-| Development             | Building, testing, and extending Signet                                   |
-
-**Flows & integration**
-
-| Guide                   | What it covers                                                     |
-| ----------------------- | ------------------------------------------------------------------- |
-| Authorization Code Flow | Auth Code + PKCE for web, SPA, and mobile clients                  |
-| Device Code Flow        | Device Authorization Grant for CLI and headless environments       |
-| Client Credentials Flow | Machine-to-machine authentication for services and CI/CD           |
-| JWT Verification        | Verifying tokens locally on resource servers via JWKS, no callback |
-| MCP Integration         | OAuth 2.1 surface for Model Context Protocol servers               |
-| Use Cases               | Real-world end-to-end examples by scenario                         |
-
-**Architecture & operations**
-
-| Guide           | What it covers                                        |
-| --------------- | ------------------------------------------------------ |
-| Architecture    | Design patterns and request lifecycle internals       |
-| Security        | Threat model and production hardening best practices  |
-| Rate Limiting   | Brute-force and abuse protection configuration        |
-| Performance     | Optimization tips and scalability options             |
-| Monitoring      | Health checks, logging, and audit trails              |
-| Metrics         | Prometheus metrics for OAuth flows and HTTP requests  |
-| Troubleshooting | Diagnosing and resolving common issues                |
 
 ---
 
