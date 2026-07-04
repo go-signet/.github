@@ -42,7 +42,7 @@
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `signet`                                      | OAuth 2.0 / OIDC Authorization Server — Device Grant + Auth Code + PKCE + Client Credentials, MCP-ready |
 | `cli`                                         | Smart OAuth CLI — auto-detects environment and picks the right flow                                     |
-| `sdk-go`                                      | Go SDK — token client, OIDC discovery, CLI flow orchestration, keyring storage, JWKS/online middleware  |
+| [`sdk-go`](https://github.com/go-signet/sdk-go) | Go SDK — token client, OIDC discovery, CLI flow orchestration, keyring storage, JWKS/online middleware  |
 | `sdk-python`                                  | Python SDK — sync & async auth, with FastAPI / Flask / Django integrations                              |
 | `examples`                                    | Multi-language usage examples (Go, Python, Bash) — CLI login, M2M, and API protection                   |
 | `helm-signet`                                 | Helm chart — single-instance (SQLite) or HA (PostgreSQL + Redis) Kubernetes deployment                  |
