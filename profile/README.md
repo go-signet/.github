@@ -7,7 +7,7 @@
 
 # go-signet
 
-**Signet** is a production-ready OAuth 2.0 / OIDC toolkit for Go — covering the **Authorization Server**, a **smart CLI client** that auto-selects the right flow for the runtime environment, **Go & Python SDKs** for secure token storage and validation, and a **Helm chart** for Kubernetes. MCP-ready out of the box with Resource Indicators (RFC 8707) and AS Metadata (RFC 8414).
+**Signet** is a production-ready OAuth 2.0 / OIDC toolkit for Go — covering the **Authorization Server**, **Go & Python SDKs** for secure token storage and validation, and a **Helm chart** for Kubernetes. MCP-ready out of the box with Resource Indicators (RFC 8707) and AS Metadata (RFC 8414).
 
 > A signet ring stays with its owner — pressing it into wax produces a mark anyone can verify but nobody else can make. The ring is the private key you hold; the impression is the verifiable signature it stamps onto every token.
 
@@ -210,7 +210,7 @@ One binary, two flows, zero configuration — mirrors the strategy used by **Git
 ```mermaid
 sequenceDiagram
     participant User   as User
-    participant CLI    as Signet CLI
+    participant CLI    as CLI Tool
     participant Server as Signet Server
 
     User->>CLI: Launch CLI
