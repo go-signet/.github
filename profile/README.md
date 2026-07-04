@@ -41,7 +41,6 @@
 | Repository                                    | Description                                                                                             |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `signet`                                      | OAuth 2.0 / OIDC Authorization Server — Device Grant + Auth Code + PKCE + Client Credentials, MCP-ready |
-| `cli`                                         | Smart OAuth CLI — auto-detects environment and picks the right flow                                     |
 | [`sdk-go`](https://github.com/go-signet/sdk-go) | Go SDK — token client, OIDC discovery, CLI flow orchestration, keyring storage, JWKS/online middleware  |
 | `sdk-python`                                  | Python SDK — sync & async auth, with FastAPI / Flask / Django integrations                              |
 | `examples`                                    | Multi-language usage examples (Go, Python, Bash) — CLI login, M2M, and API protection                   |
@@ -211,7 +210,7 @@ One binary, two flows, zero configuration — mirrors the strategy used by **Git
 ```mermaid
 sequenceDiagram
     participant User   as User
-    participant CLI    as go-signet/cli
+    participant CLI    as Signet CLI
     participant Server as Signet Server
 
     User->>CLI: Launch CLI

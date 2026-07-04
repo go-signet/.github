@@ -15,7 +15,6 @@ This is a special repository: GitHub renders `profile/README.md` on the organiza
 **Signet** covers the full OAuth 2.0 / OIDC stack:
 
 - `signet` — Authorization Server (Auth Code + PKCE, Device Grant, Client Credentials; OIDC Core; MCP-ready with RFC 8707 / RFC 8414)
-- `cli` — Smart OAuth CLI that auto-selects the right flow for the runtime environment
 - [`sdk-go`](https://github.com/go-signet/sdk-go) / `sdk-python` — SDKs for token acquisition, secure storage, and JWT validation
 - `helm-signet` — Helm chart for single-instance (SQLite) or HA (PostgreSQL + Redis) Kubernetes deployment
 - `examples` — Multi-language usage examples (Go, Python, Bash)
