@@ -15,27 +15,6 @@
 
 ---
 
-## Key Features
-
-- **Three OAuth 2.0 grants** — Authorization Code + PKCE, Device Authorization Grant, Client Credentials
-- **OIDC support** — Signed `id_token` (OIDC Core 1.0), `/oauth/userinfo`, `/.well-known/openid-configuration`, JWKS, `nonce`, `at_hash`, and `email_verified` claims
-- **Flexible JWT signing** — HS256 (symmetric), RS256 (RSA), ES256 (ECDSA P-256); asymmetric keys let resource servers verify via JWKS without shared secrets
-- **MCP-ready** — Drop-in OAuth 2.1 authorization server for [Model Context Protocol](https://modelcontextprotocol.io/) servers, with Resource Indicators (RFC 8707), AS Metadata (RFC 8414), and CORS on the well-known group
-- **Resource Indicators (RFC 8707)** — Per-request `resource` binds the JWT `aud` to a target resource server; refresh requests enforce subset-narrowing so a granted audience can never be widened
-- **Pluggable auth backends** — Local database, HTTP API, GitHub, Gitea, GitLab, Microsoft Entra ID
-- **Database support** — SQLite (zero-config) and PostgreSQL
-- **Security hardened** — Rate limiting, CSRF protection, session fingerprinting, encrypted cookies, PKCE S256 enforcement
-- **Audit logging** — Async batch writes, sensitive data masking, CSV export
-- **Observability** — Prometheus metrics, health checks, Swagger/OpenAPI docs
-- **User & admin management** — Self-service session and per-app consent revocation; admins create/disable/enable users, reset passwords, and inspect third-party connections
-- **Per-client token profiles** — `short` / `standard` / `long` access & refresh TTLs per OAuth client
-- **Refresh token rotation** — Fixed (reusable) or rotation (one-time use) modes
-- **Dynamic Client Registration (RFC 7591)** & **Token Introspection (RFC 7662)** — Opt-in programmatic registration and RFC-compliant token metadata inspection
-- **Optional HTTPS** — Serve TLS directly or terminate at a reverse proxy
-- **Single binary** — All templates and static assets embedded via `//go:embed`
-
----
-
 ## Projects
 
 | Repository                                          | Description                                                                                                               |
@@ -154,50 +133,6 @@ sequenceDiagram
 - Requires **confidential clients** (client_secret must be securely stored server-side)
 - No refresh tokens issued — the client requests a new token when the current one expires
 - Scoped access — tokens carry only the scopes assigned to the client (`openid` and `offline_access` are not permitted)
-
----
-
-## Architecture Overview
-
-```mermaid
-sequenceDiagram
-    participant Client  as Client (CLI / Web / IoT)
-    participant Router  as Gin Router + Middleware
-    participant Handler as Handlers
-    participant Service as Services
-    participant Store   as Store (GORM)
-    participant DB      as SQLite / PostgreSQL
-    participant Ext     as External Auth (optional)
-
-    Client->>Router: HTTP Request
-    Router->>Router: Rate limiting, CSRF, Session check
-    Router->>Handler: Route matched
-    Handler->>Service: Business logic
-    Service->>Store: Data access
-    Store->>DB: Query / Write
-    DB-->>Store: Result
-    Store-->>Service: Data
-    opt External auth provider (GitHub / GitLab / Microsoft / Gitea / HTTP API)
-        Service->>Ext: Authenticate or validate
-        Ext-->>Service: User info / Token
-    end
-    Service-->>Handler: Result
-    Handler-->>Client: HTTP Response
-```
-
-### Technology Stack
-
-| Layer         | Technology                                                                  |
-| ------------- | --------------------------------------------------------------------------- |
-| Language      | Go                                                                          |
-| Web Framework | [Gin](https://gin-gonic.com/)                                               |
-| Templates     | [templ](https://templ.guide/) (type-safe Go HTML)                           |
-| ORM           | [GORM](https://gorm.io/)                                                    |
-| Database      | SQLite (default) / PostgreSQL                                               |
-| JWT           | [golang-jwt/jwt](https://github.com/golang-jwt/jwt) — HS256 / RS256 / ES256 |
-| Sessions      | Encrypted cookies via gin-contrib/sessions                                  |
-| API Docs      | Swagger/OpenAPI via [swaggo](https://github.com/swaggo/swag)                |
-| Metrics       | Prometheus (memory / Redis / Redis-aside cache)                             |
 
 ---
 
