@@ -285,32 +285,6 @@ sequenceDiagram
 
 ---
 
-## Key Endpoints
-
-| Endpoint                                  | Method     | Purpose                                                          |
-| ----------------------------------------- | ---------- | ---------------------------------------------------------------- |
-| `/.well-known/openid-configuration`       | GET        | OIDC Discovery metadata                                          |
-| `/.well-known/oauth-authorization-server` | GET        | OAuth 2.0 AS Metadata (RFC 8414) — required by MCP clients       |
-| `/.well-known/jwks.json`                  | GET        | JWKS public keys for RS256/ES256 verification (RFC 7517)         |
-| `/oauth/device/code`                      | POST       | Request device + user codes (accepts optional `resource`)        |
-| `/oauth/authorize`                        | GET / POST | Authorization consent page (accepts optional `resource`)         |
-| `/oauth/token`                            | POST       | Exchange code / device_code / client_credentials / refresh_token |
-| `/oauth/tokeninfo`                        | GET        | Verify token validity                                            |
-| `/oauth/userinfo`                         | GET / POST | OIDC UserInfo — profile claims for the token owner               |
-| `/oauth/revoke`                           | POST       | Revoke tokens (RFC 7009)                                         |
-| `/oauth/register`                         | POST       | Dynamic client registration (RFC 7591, opt-in)                   |
-| `/oauth/introspect`                       | POST       | Token introspection (RFC 7662)                                   |
-| `/device`                                 | GET        | User code entry page (browser)                                   |
-| `/account/sessions`                       | GET        | Manage active sessions                                           |
-| `/account/authorizations`                 | GET        | Manage per-app consent grants                                    |
-| `/admin/users`                            | GET / POST | Admin: list / create users                                       |
-| `/admin/clients/:id/revoke-all`           | POST       | Admin: force re-auth for all users of a client                   |
-| `/health`                                 | GET        | Health check with database connectivity test                     |
-| `/metrics`                                | GET        | Prometheus metrics (optional auth)                               |
-| `/api/swagger/*`                          | GET        | Interactive API documentation                                    |
-
----
-
 ## Brand
 
 The Signet identity — a **signet ring** with an octagonal bezel and a carved "S" — lives in the [`brand`](https://github.com/go-signet/brand) repository, with logos, marks, favicons, the color palette, and usage rules. Browse the interactive guidelines at [go-signet.github.io/brand](https://go-signet.github.io/brand/).
